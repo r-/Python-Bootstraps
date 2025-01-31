@@ -1,7 +1,6 @@
 import os
 import platform
 
-
 def find_envs_folder():
     """
     Traverse the current and parent directories to find an 'envs' folder.
@@ -17,7 +16,6 @@ def find_envs_folder():
 
     return None
 
-
 def list_virtual_environments(envs_folder):
     """
     List all subdirectories in the 'envs' folder that are potential virtual environments.
@@ -27,7 +25,6 @@ def list_virtual_environments(envs_folder):
         for folder in os.listdir(envs_folder)
         if os.path.isdir(os.path.join(envs_folder, folder))
     ]
-
 
 def print_activation_instructions(env_path):
     """
@@ -44,6 +41,10 @@ def print_activation_instructions(env_path):
         print("\n   OR\n")
         print(f"2. Use the direct path in Command Prompt:")
         print(f"   {env_path}\\Scripts\\activate.bat")
+        print("\n**If you encounter an execution policy error, run one of the following commands in PowerShell:**")
+        print("   Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process")
+        print("   OR")
+        print("   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser")
     else:  # macOS/Linux
         print(f"source {env_path}/bin/activate")
 
@@ -60,7 +61,6 @@ def print_activation_instructions(env_path):
     else:
         print(f"   {env_path}/bin/python3")
     print("\nThis ensures VS Code uses the correct virtual environment for running your code.")
-
 
 def main():
     print("Python Virtual Environment Activator")
@@ -95,7 +95,6 @@ def main():
             print("Invalid choice. Exiting.")
     except ValueError:
         print("Invalid input. Exiting.")
-
 
 if __name__ == "__main__":
     main()
