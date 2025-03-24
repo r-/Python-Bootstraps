@@ -37,7 +37,7 @@ def print_activation_instructions(env_path):
     if os_name == "Windows":
         print(f"1. Navigate to the environment's 'Scripts' directory and run:")
         print(f"   cd {env_path}\\Scripts")
-        print(f"   activate")
+        print(f"   .\\activate")
         print("\n   OR\n")
         print(f"2. Use the direct path in Command Prompt:")
         print(f"   {env_path}\\Scripts\\activate.bat")
